@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    :root{
+        --strong-cyan: hsl(172, 67%, 45%);
+        --very-dark-cyan: hsl(183, 100%, 15%);
+        --dark-grayish-cyan-a: hsl(186, 14%, 43%);
+        --dark-grayish-cyan-b: hsl(184, 14%, 56%);
+        --light-grayish-cyan-a: hsl(185, 41%, 84%);
+        --light-grayish-cyan-b: hsl(189, 41%, 97%);
+        --white: hsl(0, 0%, 100%);
+    }  
+}
+
+@layer components {
+
+    .input-group-focus { 
+        @apply border-4 ;
+    }
+    .btn {
+        @apply w-1/4 bg-skin-primary text-white rounded-md p-3 m-1;
+    }
+    .bill-input {
+        @apply text-skin-primary text-lg font-bold text-right block bg-slate-200 w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 
+        shadow-sm focus:outline-none focus:border-cyan-700 focus:ring-cyan-700 focus:ring-1;
+    }
+    .custom-tip{
+        @apply w-1/4 placeholder:text-skin-primary h-12 mt-1 ml-2 text-right text-skin-primary font-bold
+        placeholder:text-sm py-2 pl-9 pr-3 
+        placeholder:text-center 
+        placeholder:font-bold
+        bg-slate-200 rounded-md 
+        focus:outline-none        
+        focus:border-cyan-700        
+        focus:ring-cyan-700 focus:ring-1;
+    }
+}
