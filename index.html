@@ -15,72 +15,109 @@
   <link rel="stylesheet" href="./css/app.css">
 
 </head>
-<body class="bg-skin-base font-SpaceMono overflow-hidden">
+<body class="bg-skin-base font-SpaceMono md:overflow-hidden">
 
-  <main class="w-screen h-screen flex grid justify-items-center content-center mx-auto">
-    <div class="w-2/4">
+  <main class="w-screen flex grid justify-items-center content-center mx-auto">
+    <div class="min-w-[75%] md:min-w-[95%] 2xl:min-w-[55%] w-2/4">
       
       <div class="w-full p-3 text-center">
         <p class="text-skin-primary font-bold text-lg">SPLI</p>
         <p class="text-skin-primary font-bold text-lg">TTER</p>
       </div>
 
-      <div class="bg-white ">
+      <div class="bg-white shadow-sm rounded-xl flex flex-row flex-wrap">
         
-        <div class="w-2/4 flex flex-col p-10">         
+        <div class="w-full md:w-2/4 flex flex-col p-10">         
 
-          <span class="text-skin-secondary text-lg font-bold">Bill</span>
-         
-          <label class="relative block ">
-            <span class="sr-only">BILL AMOUNT</span>
-            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-              <img src="./images/icon-dollar.svg" alt="">
-            </span>
-            <input class="bill-input" type="text" id="bill_amount"/>
-          </label>
+          <div class="w-full h-full flex flex-row flex-wrap mt-4">
+            
+            <span class="text-skin-secondary text-lg block w-1/2">Bill</span>   
+            <span id="error_bill_amount" class="text-md shadow-md text-red-600 w-1/2 text-right"></span>
+
+            <label class="relative block mb-5  w-full">
+              <span class="sr-only">BILL AMOUNT</span>
+              <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                <img src="./images/icon-dollar.svg" alt="">
+              </span>
+              <input class="bill-input" type="text" id="bill_amount"/>
+            </label>
+
+          </div>
 
           <span class="text-skin-secondary text-lg font-bold">Select Tip %</span>
-          <div class="w-full flex flex-row flex-wrap content-between p-0 rounded-xl mb-4">
-            <button class="btn">5%</button>
-            <button class="btn">10%</button>
-            <button class="btn">15%</button>
-            <button class="btn">25%</button>
-            <button class="btn">50%</button>
-            <input type="text" class="custom-tip" placeholder="Custom">
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <button data-percentage="5" class="btn btn-percentage">5%</button>
+            <button data-percentage="10" class="btn btn-percentage">10%</button>
+            <button data-percentage="15" class="btn btn-percentage">15%</button>          
+            <button data-percentage="25" class="btn btn-percentage">25%</button>
+            <button data-percentage="50" class="btn btn-percentage">50%</button>
+            <input id="custom_tip" type="text" class="custom-tip" placeholder="Custom">
           </div>
+          
+          <div class="w-full flex flex-row flex-wrap mt-4">
+            
+            <span class="text-skin-secondary text-lg block w-1/2">Number of People</span>
+            <span id="error_number_people" class="text-md shadow-md text-red-600 w-1/2 text-right"></span>
+            
+            <label class="relative block mb-5 w-full">
+              <span class="sr-only">Number of People</span>
+              <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                <img src="./images/icon-person.svg" alt="">
+              </span>
+              <input class="bill-input" type="text" id="number_people"/>
+            </label>
+
+          </div>
+
         </div>
 
-        <div class="w-2/4">
+        <div class="w-full md:w-2/4 p-10 bg-white rounded-xl">
+           
+            <div class="bg-skin-primary min-h-full p-3 rounded-lg flex flex-col justify-between ">
+
+              <div>
+                <div class="w-full flex md:flex-row ">                         
+                  <span class="block w-1/2 p-3 flex flex-col text-lg sm:text-3xl md:text-2xl">
+                    <span class="text-white">Tip Amount</span>
+                    <span class="text-sm text-gray-400">/ person</span>        
+                  </span>
+                  <span id="tip_total_by_person" class="block w-1/2 p-3 font-bold text-right text-lg sm:text-3xl md:text-4xl text-skin-info">
+                    $0.00
+                  </span>
+                </div>
+
+                <div class="w-full flex md:flex-row ">                         
+                  <span class="block w-1/2 p-3 flex flex-col text-lg sm:text-3xl md:text-2xl">
+                    <span class="text-white">Total</span>
+                    <span class="text-sm text-gray-400">/ person</span>        
+                  </span>
+                  <span id="total_person_amount" class="block w-1/2 p-3 font-bold text-right text-lg sm:text-3xl md:text-4xl text-skin-info">
+                    $0.00
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="">
+                <button id="btn_reset" class="w-full bg-skin-secondary p-2 rounded-lg font-bold hover:opacity-80">
+                  RESET
+                </button>
+              </div>
+
+            </div>
 
         </div>
 
       </div>
 
     </div>
-  </main>
-  
+  </main>    
 
-  
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
 
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
+  <div class="flex flex-row flex-wrap w-full justify-center font-bold">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#" class="text-skin-primary">Tomas Emanuel Ramirez Abarca</a>.
   </div>
 
   <script src="./js/app.js"></script>
